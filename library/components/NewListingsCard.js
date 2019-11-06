@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import {Text, TextInput, View, ImageBackground, Image} from 'react-native'
+import {Text, TouchableWithoutFeedback, View, ImageBackground, Image} from 'react-native'
 import Styles from '../styles';
 
 
 class NewListingsCard extends Component {
+    
     render() {
+        let {press_handler} = this.props
         return (
+            <TouchableWithoutFeedback onPress={press_handler}>
             <View style={[Styles.new_listings_card]} elevation ={2}>
             <ImageBackground style={[Styles.new_listings_card_image]} source={require('../../assets/images/house_image.png')}>
             <View style={[Styles.image_overlay]}></View>
@@ -17,6 +20,7 @@ class NewListingsCard extends Component {
             <Text style={Styles.listings_card_data_text}> Two Bedroom Apartment</Text>
             <Text style={Styles.listings_card_data_text}> 5 Chi-Ben Street, LA New York</Text>
             </View>
+            </TouchableWithoutFeedback>
         );
     }
 }

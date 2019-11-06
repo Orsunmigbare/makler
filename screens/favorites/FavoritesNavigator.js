@@ -5,6 +5,13 @@ import Favorites from './Favorites'
 const FavoritesStack = createStackNavigator(
     {
         Favorites: Favorites
+    },
+    {
+        defaultNavigationOptions: {
+            headerStyle: {
+                display: 'none'
+            }
+        }
     }
 )
 

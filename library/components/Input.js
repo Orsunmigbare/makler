@@ -54,4 +54,36 @@ class Input extends Component {
 }
 
 
+export class FilterInput extends Component{
+    render(){
+        let {placeholder,container_style} = this.props;
+        return(
+            <View style={[Styles.flex_column, { width: '100%' , marginBottom: normalize(26)}, container_style||null ]}>
+                <View>
+                   
+                   <TouchableWithoutFeedback onPress={this.toggleShowPassword}>
+                       <View style={[Styles.passwordControl, Styles.align_items_center, Styles.justify_content_center]}> 
+                            <Text style={[Styles.passwordControlText]}> ADD </Text> 
+                       </View>
+                    </TouchableWithoutFeedback> 
+                   <TextInput style={[Styles.input]} placeholder={placeholder}/>
+                 </View>   
+          </View>
+        )
+    }
+}
+
+export class ChatInput extends Component { 
+    render(){
+        let {container_style,placeholder} = this.props;
+        return(
+            <View style={[Styles.flex_column, container_style||null ]}>
+                <View>
+                   <TextInput style={[Styles.input, Styles.chat_input]} placeholderTextColor={'#00000063'} placeholder={placeholder}/>
+                 </View>   
+          </View>
+        )
+    }
+}
+
 export default Input;

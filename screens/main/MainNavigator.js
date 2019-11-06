@@ -14,9 +14,10 @@ const TabNavigator = createBottomTabNavigator(
         Upload: UploadNavigator,
         Favorites: FavoritesNavigator,
         Messages: MessagesNavigator,
-        Profile: ProfileNavigator
+        Profile: ProfileNavigator,
     },
     {
+        initialRouteName: 'Home',
         defaultNavigationOptions : ({navigation})=>({
             tabBarIcon: ({focused,horizontal,tintColor})=>{
                 const {routeName} = navigation.state;
@@ -39,14 +40,21 @@ const TabNavigator = createBottomTabNavigator(
                     break;
                 }
                 return <Icon name={icon} style={{height: 25, width: 25}} color={tintColor}/>
-            }
+            },
         }),
+        navigationOptions : ({navigation})=>{
+            return {
+                tabBarVisible: false
+            }
+        },
         tabBarOptions: {
             activeTintColor: '#0F1969',
-            inactiveTintColor : "#979797",
-            showLabel: false
-        }
-    }
+            inactiveTintColor : "#5e5e5e",
+            showLabel: false,
+        },
+       
+    
+}
 )
 
 export default MainNavigator = createAppContainer(TabNavigator)

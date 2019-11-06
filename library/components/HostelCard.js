@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import {Text, TextInput, View, ImageBackground, ScrollView, Image} from 'react-native'
 import Styles from '../styles';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 class HostelCard extends Component {
     render() {
+        let {style, hide_mark_favorite, press_handler} = this.props;
         return (
-            <View style={[Styles.hostel_card]} elevation={2}>
+            
+            <View style={[Styles.hostel_card, style || null]} elevation={2}>
+                <TouchableWithoutFeedback onPress={press_handler}>
                 <ImageBackground style={[Styles.hostel_card_image]} source={require('../../assets/images/house_image.png')}>
+                   {!hide_mark_favorite
+                    &&  
+                    <Image 
+                    source = {require('../../assets/icons/favorites-heart.png')}
+                    style = {Styles.hostel_card_favorite}
+                   />
+                   }
                     <View style={[Styles.image_overlay]}></View>
                 </ImageBackground>
                <View>
@@ -25,6 +36,7 @@ class HostelCard extends Component {
                 </View>
                 <Text style={Styles.hostel_card_data_text}> Two Bedroom Apartment</Text>
                 <Text style={Styles.hostel_card_data_text}> 5 Chi-Ben Street, LA New York</Text>
+                </TouchableWithoutFeedback>
             </View>
            
         );

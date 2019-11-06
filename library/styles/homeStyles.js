@@ -19,17 +19,23 @@ export function normalize(size) {
 
 export default homeStyles = {
     parent_container: {
-    paddingBottom: normalize(100)
+    paddingBottom: normalize(250),
     },
     search: {
-        width: '100%',
         backgroundColor: 'white',
+        width: '95%',
+        alignSelf: 'center',
+        marginHorizontal: normalize(15),
         marginTop: normalize(-35),
         height: normalize(50),
         paddingLeft: normalize(23),
         borderRadius: normalize(22),
         fontFamily: 'montserrat',
         color: '#a09a9a'
+    },
+    landing_container: {
+        position: 'absolute',
+        width: SCREEN_WIDTH
     },
     search_icon: {
         height: normalize(30),
@@ -54,13 +60,12 @@ export default homeStyles = {
     },
     listings_card_content_container: {
         marginTop: normalize(16),
+        
     },
     listings_card_container: {
         width: SCREEN_WIDTH,
         marginLeft: normalize(-15),
-        paddingLeft: normalize(11)
-    }
-
+        paddingLeft: normalize(11),
     
-
+    }
 }
